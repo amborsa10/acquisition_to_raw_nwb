@@ -1,4 +1,14 @@
-function nwb = write_NWB_time_series(nwb,fs,ephys_raw,opto_raw,galvo_raw) % add trial trig raw, cam trig raw
+function nwb = write_NWB_time_series(nwb,fs,ephys_raw,opto_raw,galvo_raw)
+% WRITES RAW DATA STREAMS TO NWB OBJECT, INITIALIZES DATA COMPRESSION
+% This function requires 5 inputs:
+% 1. 'nwb' -- NWB object (already populated with metadata)
+% 2. 'fs','ephys_raw','opto_raw','galvo_raw' -- outputs from
+% 'read_TDT_block.m'
+
+% COMMENTS:
+% * Units of the ElectricalSeries and GalvoTimeSeries should be Volts
+% * Units of the OptogeneticSeries should be Watts
+% * TODO: convert OptogeneticSeries from Volts to Watts
 
     number_of_electrodes = size(ephys_raw,2);
     number_of_leds = size(opto_raw,2);
@@ -22,7 +32,7 @@ function nwb = write_NWB_time_series(nwb,fs,ephys_raw,opto_raw,galvo_raw) % add 
         'data', ephys_compressed,...
         'electrodes', electrode_table_region,...
         'data_unit', 'volts',...
-        'data_conversion',1e-6);
+        'data_conversion',1);
     nwb.acquisition.set('ElectricalSeries',electrical_series);
     
     % saving OptogeneticSeries data

@@ -19,6 +19,8 @@ animal.description = ...
 % This will eventually come from experimenter's notes (and stim files).
 
 session.iacuc_protocol = 'A100223'; %char array
+session.experimenter = 'Adriano'; %char array
+session.institution = 'Georgia Tech'; %char array
 session.recording_day = convertStringsToChars(datetime(2022,05,06)); %datetime char array
 session.recording_session = '1'; %char array (# of the session on this animal)
 session.number_of_blocks = 7; %float
