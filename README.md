@@ -1,5 +1,5 @@
 # acquisition_to_raw_nwb
-functions for saving ephys acquisition data from proprietary file formats as a 'raw' NWB file according to the Stanley Lab acute ephys data standard
+Functions for saving ephys acquisition data from proprietary file formats as a 'raw' NWB file according to the Stanley Lab acute ephys data standard
 
 Instructions for Elaida (5/13/2022): go to the examples/TDT directory and follow the directions in the script 'working_script.m'. 
 After modifying a few things as described in the comments, you should be able to run the script and generate a very light raw NWB file.
